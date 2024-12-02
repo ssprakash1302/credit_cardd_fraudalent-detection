@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+</head>
+<body>
+    <h2>Credit Card Fraud Detection</h2>
+    <form action="/predict" method="post">
+        <label for="Time">Time:</label>
+        <input type="text" name="Time" required><br>
+        {% for i in range(1, 29) %}
+            <label for="V{{i}}">V{{i}}:</label>
+            <input type="text" name="V{{i}}" required><br>
+        {% endfor %}
+        <label for="Amount">Amount:</label>
+        <input type="text" name="Amount" required><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if result %}
+        <h3>Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
